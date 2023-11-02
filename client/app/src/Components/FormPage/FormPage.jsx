@@ -2,72 +2,63 @@ import React, { useState } from 'react'
 import preparaTypes from '../../Helpers/preparaTypes';
 import axios from 'axios'
 import validate from '../../Helpers/validate';
-import './FromPage.css'
+import './FormPage.css'
 
-export const FromPage = () => {
+export const FormPage = () => {
 
 
     const [err, setErr] = useState({
         name: '',
-        img: '',
-        hp: '',
-        attack: '',
-        defense: '',
-        speed: '',
-        height: '',
-        weight: '',
-        frist: '',
-        second: '',
-        types: ''
+         img: '',
+          hp: '', 
+          attack: '', 
+          defense: '', 
+          speed: '', 
+          height: '', 
+          weight: '', 
+          frist: '', 
+          second: '', 
+          types: ''
     });
 
     const [form, setForm] = useState(
-        {
-            name: '',
-            img: '',
-            hp: '',
-            attack: '',
-            defense: '',
-            speed: '',
-            height: '',
-            weight: '',
-            frist: '',
-            second: '',
-        });
+        { name: '', 
+        img: '', 
+        hp: '', 
+        attack: '', 
+        defense: '', 
+        speed: '', 
+        height: '', 
+        weight: '', 
+        frist: '', 
+        second: '', 
+    });
 
-
-        const sumbitHandler = async (event, form) => {
-            event.preventDefault();
-          
-            // Realiza la solicitud POST utilizando axios
-            try {
-              
-          
-              const crear = await axios.post("http://localhost:3001/pokemons/",form)
-          
-              if (crear.status === 200) {
+    const submitHandler = async (event, form) => {
+        event.preventDefault();
+        try {
+            const crear = await axios.post("http://localhost:3001/pokemons/", form);
+            if (crear.status === 200) {
                 setMessage('Se creó el Pokémon correctamente');
-              }
-            } catch (error) {
-              // Handle error
-              console.error('Error al enviar el formulario', error);
             }
-          };
-          
+        } catch (error) {
+            console.error('Error al enviar el formulario', error);
+        }
+    };
 
     const handleChange = (event) => {     //CREA LA CONEXION ENTRE THE STATE Y  LOS VALUE 
+        event.preventDefault();
         const property = event.target.name;
         const value = event.target.value;
         setForm({ ...form, [property]: value });
         preparaTypes({ ...form, [property]: value }, setForm); // AUXILIAR UNE LOS TYPES EN EL ARRAY
         validate({ ...form, [property]: value }, setErr, err); //PROCESA LAS VALIDACIONES DEL AUXILIAR Y LOS SETEA EN ERROR
-
     };
 
     return (<>
 
         <div>FromPage</div>
-        <form action="#" onSubmit={(event) => sumbitHandler(event, form)}>
+        <form action="#" onSubmit={(event) => submitHandler(event, form)}>
             <div>
                 <label htmlFor="name">name  </label> {/* ES IMPORTANTE QUE EXISTA LA CORRELACION ENTRE NAME Y PROPERTY*/}
                 <input type="text" name='name' value={form.name} onChange={handleChange} /> {/* ONCHANGE FUNCION ESCUCHA */}
@@ -174,6 +165,6 @@ export const FromPage = () => {
 
             <button type="submit">Create Pokemon</button>
         </form>
-    </>
-    )
+
+    </>)
 }
