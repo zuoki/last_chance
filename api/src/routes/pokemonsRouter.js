@@ -22,15 +22,15 @@ pokemonsRouter.get("/", async (req, res) => {
 
 //middware de validacion de datos
 const middlewarePostValidation = (req, res, next) => {
-    const { name, img, hp, attack, defense, types } = req.body;
+    const { name, img, hp, attack, defense, types, speed, height, weight, frist, second } = req.body;
   
     const error = {
       "error": "Required data is incomplete",
       "details": "Make sure to provide all the necessary data in the request."
     }
   
-    if (![name, img, hp, attack, defense].every(Boolean) || types.length < 2) {
-      return res.status(400).json(error); //'return' aquí para detener la ejecución del middleware
+    if (![name, img, hp, attack, defense, types].every(Boolean) || types.length < 2) {
+      return res.status(400).json(error);
     }
   
     next();
