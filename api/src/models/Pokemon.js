@@ -19,15 +19,15 @@ module.exports = (sequelize) => {
     },
     hp: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     attack: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     defense: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     speed: {
       type: DataTypes.INTEGER,
@@ -41,15 +41,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    image: {
+    img: {
       type: DataTypes.STRING,
       allowNull: true,
-    },
-    createInDb: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: 'true',
-    },
+    }
   }, {
     timestamps: false, // Deshabilitar marcas de tiempo
   });

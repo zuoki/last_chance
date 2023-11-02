@@ -11,37 +11,53 @@ const getPokemon = async (nameUppercase) => { //fn asincrona, va a buscar a todo
     
     if (nameUppercase){ name = nameUppercase.toLowerCase();}
 
-        if (!nameUppercase) { //verifica si no existe name trae a todos los pokemons
-            const response = await axios.get(API_POKEMON); //solicitud a la API
-            const pokemons = response.data.results; //en pokemons se almacena la respuesta con todos los poke
-            const apiPoke = await Promise.all(pokemons.map(async (pokemon) => { //mapeo para iterar
-                const response = await axios.get(`${API_POKEMON}/${pokemon.name}`); //realizo una peticion a la API buscando el nombre del pokemon
-                const pokemons = response.data;//la respuesta se almacena en pokemons
+    if (nameUppercase) {
+        name = nameUppercase.toLowerCase();
+    } else {
+        // Realiza una solicitud a la API para obtener todos los pokémons
+        const response = await axios.get(API_POKEMON,{timeout:4000});
+        const pokemons = response.data.results;
+    
+        // Mapea y obtiene detalles de cada pokémon
+        const apiPoke = await Promise.all(
+            pokemons.map(async (pokemon) => {
+                const pokemonResponse = await axios.get(`${API_POKEMON}/${pokemon.name}`,{timeout:4000});
+                const pokemonData = pokemonResponse.data;
+    
+                // Extrae la información relevante del pokémon
                 const poke = {
-                    id: pokemons.id,
-                    name: pokemons.name,
-                    img: pokemons.sprites.front_default, //toma la imagen por defecto del pokemon
-                    hp: pokemons.stats[0].base_stat,
-                    attack: pokemons.stats[1].base_stat,
-                    defense: pokemons.stats[2].base_stat,
-                    speed: pokemons.stats[5].base_stat,
-                    height: pokemons.height,
-                    weight: pokemons.weight,
-                    types: pokemons.types.map(e => e['type'].name),
-            
-                }
-                return (poke)}) //espera a que termine el mapeo
-            )
-            const total = await Promise.all([apiPoke, Pokemon.findAll({ include: [{ model: Type, attributes: ["name"] }] }) ])
-            return (total) // me trae todos los pokemons de la BD
-
-        }
+                    id: pokemonData.id,
+                    name: pokemonData.name,
+                    img: pokemonData.sprites.front_default,
+                    hp: pokemonData.stats[0].base_stat,
+                    attack: pokemonData.stats[1].base_stat,
+                    defense: pokemonData.stats[2].base_stat,
+                    speed: pokemonData.stats[5].base_stat,
+                    height: pokemonData.height,
+                    weight: pokemonData.weight,
+                    types: pokemonData.types.map((type) => type['type'].name),
+                };
+    
+                return poke;
+            })
+        );
+    
+        // Combina los datos de la API con los datos de la base de datos
+        const total = await Promise.all([
+            apiPoke,
+            Pokemon.findAll({ include: [{ model: Type, attributes: ["name"] }]}),
+        ]);
+    
+        return total; // Retorna todos los pokémons de la BD combinados con los de la API
+    }
+    
 
        //ACA EMPIEZA A BUSCAR EN LA BD
        const dbPokemons = await Pokemon.findOne({
         where: { name: { [Op.iLike]: `%${name}%` } }, include: [{ model: Type, attributes: ["name"] }] // no discrimina entre mayus y minus
     });
 
+    
 
     if (!dbPokemons) {
         const response = await axios.get(API_POKEMON + "/" + name);

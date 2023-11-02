@@ -9,7 +9,7 @@ const { Pokemon, Type } = require("../db");
 const createPokemon = async (data) => {
   const { name, img, hp, attack, defense, speed, height, weight, types } = data;
 
-  console.log(types)
+
   // Crear el Pokémon
   const newPokemon = await Pokemon.create({
     name: name,
@@ -22,25 +22,26 @@ const createPokemon = async (data) => {
     weight: weight,
   });
   // Procesar cada tipo 
-    for (const typeName of types) {
+    for (const type of types) {
       let pokemonType = await Type.findOne({
         where: {
-          name: typeName,
+          name: type,
         },
       })
     
-
-    // Relacionar el tipo con el Pokémon
+    // Relacionar el tipo con el Pokémon en la tabla intermedia
     await newPokemon.addType(pokemonType);
   }
 
+  
   // Buscar el Pokémon en la base de datos y devolverlo
-  const pokemondb = await Pokemon.findOne({
+  const pokemonAndType = await Pokemon.findOne({
     where: { name },
+    //incluyo el dato del tipo de pokemon
     include: [{ model: Type, attributes: ["name"], through: { attributes: [] } }],
   });
 
-  return pokemondb;
+  return pokemonAndType;
 };
 
 

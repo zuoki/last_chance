@@ -27,4 +27,5 @@ const getTypes = async () => {
         : typeDB;
 };
 
+
 module.exports = getTypes;

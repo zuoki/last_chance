@@ -6,22 +6,20 @@ const getPokemonId = async ({ id }) => {
 
     //si id no es un numero lo busca en la base de datos
     if (isNaN(id)) {
-        const pokemonDetail = await Pokemon.findOne({
-            where: { id },
-            include: [{ model: Type, attributes: ["name"] }],
-        });
+        // ------------------------------------- findByPk busca por la primary key 
+        const pokemonDetail = await Pokemon.findByPk(id);
 
         if (!pokemonDetail) {
             return ({ error: "Pokemon no encontrado" });
         } else {
             return (pokemonDetail);
-
         }
+
     } else {
         //si el id es un numero lo busco en la API
         const response = await axios.get(`${API_POKEMON}/${id}`);
         const { name, sprites, stats, height, weight, types } = await response.data;
-        
+
         const pokemon = {
             id,
             name,
@@ -34,9 +32,11 @@ const getPokemonId = async ({ id }) => {
             weight,
             types: types.map(e => e['type'].name),
         };
+
         return (pokemon);
     }
 }
+
 
 
 
