@@ -18,28 +18,41 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     hp: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     attack: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     defense: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     speed: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
+      get(){
+        const raw = this.getDataValue("speed");
+        return raw? `${raw}`:"sin datos";
+      }
     },
     height: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
+      get(){
+        const raw = this.getDataValue("height");
+        return raw? `${raw}`:"sin datos";
+      }
     },
     weight: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
+      get(){
+        const raw = this.getDataValue("weight");
+        return raw? `${raw}`:"sin datos";
+      }
+      
     },
     img: {
       type: DataTypes.STRING,
