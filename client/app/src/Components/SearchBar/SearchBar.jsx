@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchPokemon } from '../../Redux/Actions/actions';
 
 export const SearchBar = () => {
   const [name, setName] = useState('');
   const [pokemonInfo, setPokemonInfo] = useState(null);
   const [error, setError] = useState(null);
+
+  const dispatch=useDispatch()
 
   const inputHandler = (event) => {
     const name = event.target.value;
@@ -13,12 +17,16 @@ export const SearchBar = () => {
 
   const searchHandler = async (event) => {
     event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+    
 
     try {
       const response = await axios.get(`http://localhost:3001/pokemons?name=${name}`);
       const data = response.data;
       setPokemonInfo(data); // Actualiza el estado con la información del Pokémon
-      setError(null); // Borra cualquier error anterior
+      
+      dispatch(searchPokemon(name))
+      
+
     } catch (error) {
       setPokemonInfo(null); // Borra la información del Pokémon
       setError("No se encontró un Pokémon con ese nombre");
