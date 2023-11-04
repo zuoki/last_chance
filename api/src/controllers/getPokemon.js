@@ -9,6 +9,7 @@ se maneja adecuadamente y se devuelve un estado de error al cliente.*/
 const getPokemon = async (nameUppercase) => { //fn asincrona, va a buscar a todos los pokeons y a los poquemons cuando lo soliciten poor name
   function formatPokemonArray(db) {
     const formattedArray = db.map((pokemon) => {
+      
       const formattedTypes = pokemon.types.map((type) => type.name);
       
       return {

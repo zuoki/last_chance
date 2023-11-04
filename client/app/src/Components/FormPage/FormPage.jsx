@@ -47,10 +47,10 @@ export const FormPage = () => {
     };
 
     const handleChange = (event) => {     //CREA LA CONEXION ENTRE THE STATE Y  LOS VALUE 
-        event.preventDefault();
         const property = event.target.name;
         const value = event.target.value;
         setForm({ ...form, [property]: value });
+        
         preparaTypes({ ...form, [property]: value }, setForm); // AUXILIAR UNE LOS TYPES EN EL ARRAY
         validate({ ...form, [property]: value }, setErr, err); //PROCESA LAS VALIDACIONES DEL AUXILIAR Y LOS SETEA EN ERROR
     };

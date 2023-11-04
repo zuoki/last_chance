@@ -54,6 +54,10 @@ module.exports = (sequelize) => {
       }
       
     },
+    createdInDB:{
+      type:DataTypes.BOOLEAN,
+      default:true,
+    },
     img: {
       type: DataTypes.STRING,
       allowNull: true,
