@@ -56,7 +56,10 @@ module.exports = (sequelize) => {
     },
     createdInDB:{
       type:DataTypes.BOOLEAN,
-      default:true,
+      get(){
+        const raw = this.getDataValue("createdInDB");
+        return raw? `${raw}`:true;
+      }
     },
     img: {
       type: DataTypes.STRING,

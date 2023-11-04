@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterPokemon, orderPokemons } from '../../Redux/Actions/actions';
+import { filterPokemon, orderPokemons,originPokemon } from '../../Redux/Actions/actions';
 
 export const Pokedex = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,12 @@ export const Pokedex = () => {
        console.log(type)
     dispatch(filterPokemon(type))
           
+  };
+  const originHandler=(event)=>{
+    const origin=event.target.value;
+    
+    dispatch(originPokemon(origin));
+
   };
 
   return (
@@ -55,10 +61,12 @@ export const Pokedex = () => {
             <option value="minMax">Menor a Mayor</option>
           </select>
           <label htmlFor="Origin">Origin</label>
-          <select name="Origin" id="3" onChange={(event) => orderHandler(event)}>
-            <option value="notOrder">ALL</option>
-            <option value="Api">API</option>
-            <option value="Db">DB</option>
+
+
+          <select name="Origin" id="3" onChange={(event) => originHandler(event)}>
+            <option value="">ALL</option>
+            <option value="API">API</option>
+            <option value="DB">DB</option>
           </select>
           <span>{"holis"}</span>
         </div>

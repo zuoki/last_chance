@@ -4,7 +4,9 @@ import axios from 'axios';
 
 export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS";
 export const ORDER_POKEMONS = "MAX_MIN_POKEMONS";
-export const FILTER_POKEMON= "FILTER_POKEMON"
+export const FILTER_POKEMON= "FILTER_POKEMON";
+export const ORIGIN_POKEMON= "ORIGIN_POKEMON";
+
 
 export const fetchPokemons = () => {
   return async (dispatch) => {
@@ -24,6 +26,11 @@ export const orderPokemons = (data) => {
 
 export const filterPokemon = (data) => {
   return { type: FILTER_POKEMON, payload: data };
+};
+
+
+export const originPokemon=(data)=>{
+  return{type:ORIGIN_POKEMON, payload:data}
 };
 
 
