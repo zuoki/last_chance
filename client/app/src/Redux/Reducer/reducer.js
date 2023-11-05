@@ -97,13 +97,38 @@ const reducer = (state = initialState, action) => {
                 };
             }
             return state; // Agrega un retorno por defecto si action.payload no coincide con "DB".
-
+             
 
             case SEARCH_POKEMON:
-                return{
+                const newData = action.payload;
+                
+                // Verificamos si el nuevo Pokémon ya existe en el array
+                const existingPokemonIndex = state.pokemons.findIndex(pokemon => pokemon.name === newData.name);
+                
+                if (existingPokemonIndex !== -1) {
+                  // Si ya existe, lo eliminamos del array
+                  const updatedPokemons = [...state.pokemons];
+                  updatedPokemons.splice(existingPokemonIndex, 1);
+                  
+                  // Luego lo agregamos al principio del array
+                  updatedPokemons.unshift(newData);
+              
+                  return {
                     ...state,
-                    pokemons: [action.payload,...state.pokemons]
+                    pokemons: updatedPokemons,
+                    allPokemons: updatedPokemons,
+                  };
+                } else {
+                  // Si no existe, lo agregamos al principio del array
+                  const newAll = [newData, ...state.pokemons];
+              
+                  return {
+                    ...state,
+                    pokemons: newAll,
+                    allPokemons: newAll,
+                  };
                 }
+              
               
 
         default:

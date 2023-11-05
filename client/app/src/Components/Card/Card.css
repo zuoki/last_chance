@@ -1,4 +1,96 @@
-.card {
-    border: 5px solid red;
+/* Estilo base para el elemento 'article' */
+article {
+  position: relative;
+  width: 250px;
+  transition: all .3s ease;
+  border-radius: 5%;
+}
+
+/* Estilo para la primera imagen dentro del 'article' */
+article img:first-child {
+  box-shadow: 0 60px 60px -60px rgba(253, 236, 0, 0.966);
+  border-radius: 4px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 5%;
+}
+
+/* Estilo para la segunda imagen dentro del 'article' */
+article img:last-child {
+  position: absolute;
+  width: 200px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(25%) scale(1); /* Establecer la escala inicial en 1 */
+  transition: .3s ease;
+  opacity: 0;
+  border-radius: 5%;
+}
+
+/* Estilo para el elemento con clase 'info' dentro del 'article' */
+.info {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+  font-family: 'Pixelify Sans', sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  font-size: 2em;
+}
+
+/* Efecto de transformación y rotación cuando se coloca el mouse sobre 'article' */
+article:hover {
+  transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+}
+
+/* Efecto de fondo antes de 'article' cuando se coloca el mouse sobre él */
+article::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0) 95%
+  );
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+/* Mostrar el efecto de fondo antes de 'article' cuando se coloca el mouse sobre él */
+article:hover::before {
+  opacity: 1;
+}
+
+/* Efecto de opacidad y transformación para la segunda imagen cuando se coloca el mouse sobre 'article' */
+article:hover img:last-child {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+/* Animación de palpitación para la última imagen cuando se coloca el mouse sobre ella */
+article img:last-child:hover {
+  animation: pulse 1s ease infinite;
+}
+
+/* Definición de la animación de palpitación */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

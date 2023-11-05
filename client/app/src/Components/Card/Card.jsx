@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import cardImg from "../../assets/img/Card.png"
+import "./Card.css"
 
  
  const  Card = ({ data }) => {
@@ -20,17 +22,14 @@ import { Link } from "react-router-dom";
 
   return (
     <>
-      <div className='card'>
-        <div></div>
-        <div>
-          <p>Name: {name}</p>
-          <p>Type: {typeNames}</p>
-        </div>
-        <img src={img} alt={name} />
-        <button>
-          <Link to={`/DetailPage/${id}`}>Details</Link>
-        </button>
-      </div>
+      <Link to={`/DetailPage/${id}`} className='card-link'>
+        <article className='card'>
+          <img src={cardImg} alt="card-background" />
+            <img src={img} alt={name} className="img1" />
+         
+        </article>
+      <p>({name} : {typeNames})</p>
+      </Link>
     </>
   );
 };

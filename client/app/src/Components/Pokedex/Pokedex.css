@@ -1,0 +1,54 @@
+/* Estilos generales para Pokedex */
+.Pokedex {
+  
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: url('../../assets/img/pokedex.png') no-repeat;
+  background-size: cover;
+  width: 24vw;
+}
+
+
+  
+  .Pokedex select {
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+  }
+  
+  .Pokedex label {
+    font-family: 'Pixelify Sans', sans-serif; 
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .Pokedex button {
+    font-family: 'Pixelify Sans', sans-serif; 
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  .Pokedex button:hover {
+    font-family: 'Pixelify Sans', sans-serif; 
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el contenedor de Pokedex */
+  .Pokedex-container {
+    font-family: 'Pixelify Sans', sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura de la página completa */
+  }
+  

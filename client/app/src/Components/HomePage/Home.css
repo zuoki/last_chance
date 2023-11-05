@@ -1,0 +1,41 @@
+.home-container {
+  display: flex;
+  height: 100vh;
+  background-color: rgb(45, 45, 63);
+  overflow: scroll;
+}
+
+.home-SearchBar {
+  background-color: #695c5c;
+  margin-top: 0.1vh;
+  position: absolute;
+ display: flex;
+ height: 18vh;
+ width:99vw;
+}
+
+.home-Pokedex {
+  display: flex;
+  position: absolute;
+  margin-top: 20vh;
+  display: flex;
+  height: 80vh;
+  width:23vw;
+
+}
+.home-Paginado{
+
+  display: flex;
+  position: relative;
+  margin-top: 20vh;
+  margin-left: 24vw;
+  display: flex;
+  height: 80vh;
+  width:74vw;
+  
+  
+  
+}
+
+/* Estilos para SearchBar, Pokedex y Paginado */
+/* Ajusta los estilos según tus necesidades específicas */

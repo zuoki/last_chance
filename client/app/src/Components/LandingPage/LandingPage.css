@@ -1,0 +1,51 @@
+.landing {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f43f3f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .welcome {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de aspecto original de la imagen */
+  }
+  
+  .pokeball {
+    width: 360px;
+    animation: float 2s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Estilos para botón */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para texto */
+  p {
+    color: #fff;
+    font-size: 20px;
+  }
+  

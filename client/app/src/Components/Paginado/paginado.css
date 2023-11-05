@@ -1,0 +1,8 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas con ancho igual */
+    grid-template-rows: repeat(3, 1fr);    /* 3 filas con altura igual */
+    gap: 10px; /* Espacio entre las tarjetas */
+   
+  }
+  

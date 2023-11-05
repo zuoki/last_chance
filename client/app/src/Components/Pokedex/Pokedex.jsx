@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterPokemon, orderName, orderPokemons, originPokemon } from '../../Redux/Actions/actions';
+import { Link } from 'react-router-dom';
+
 
 export const Pokedex = () => {
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ export const Pokedex = () => {
 
   return (
     <>
-      <div>Pokedex</div>
+      <div className='Pokedex'>Pokedex</div>
       <form>
         <div>
           <label htmlFor="type" >Type</label>
@@ -105,6 +107,8 @@ export const Pokedex = () => {
           </select>
         </div>
       </form>
+       
+      <Link to="/FormPage"><button>create</button></Link>
     </>
   );
 };
