@@ -39,6 +39,11 @@
   
   
 }
+.GoForm{
+  display:flex;
+  width: 30%;
+  height: 60%;
+}
 
 
 

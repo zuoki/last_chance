@@ -1,0 +1,16 @@
+.contenedorG{
+    border: 5px solid black;
+    position: fixed;
+    top: 48%;
+    width: 23%;
+    height: 50.5%;
+    background-color: rgb(202, 44, 44);
+    border-radius: 10px;
+    right: .5%;
+}
+.mioak{
+position: absolute;
+width: 50%;
+bottom: 0;
+right: 70%    
+}

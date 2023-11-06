@@ -11,11 +11,15 @@
     position: fixed;
     width: 23%;
     background-color: rgb(237, 75, 70);
-    right: 1%;
+    right: 0.5%;
     border-radius: 10px;
+    height: 25%;
   }
   
+  
   .buttonP{
+    left: 20%;
+    position: absolute;
     background-color: rgb(28, 182, 148);
     width: 170px;
     height: 60px;
@@ -25,7 +29,8 @@
     border: 3px solid black;
   }
   .buttonP2{
-    position: relative;
+    left: 20%;
+    position: absolute;
     background-color: rgb(28, 182, 148);
     width: 170px;
     height: 60px;
@@ -35,5 +40,7 @@
     border: 3px solid black;
   }
   .pP{
+    position: relative;
+    top: 25%;
     font-size: 2em;
   }

@@ -30,3 +30,24 @@
     background-size: cover;
    
 }
+
+.mensaje {
+    color: red;
+    font-size: 2em;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mensaje2{
+
+    color: rgb(94, 255, 0);
+    font-size: 2em;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+}

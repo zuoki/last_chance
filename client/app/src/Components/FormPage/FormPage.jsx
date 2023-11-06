@@ -108,7 +108,7 @@ export const FormPage = () => {
 
         <div>
           <label htmlFor="type1">Type</label>
-          <select name="frist" id="1" value={form.frist} onChange={handleChange}>
+          <select name="frist" id="1" value={form.frist} onChange={handleChange} multiple>
              <option value="normal">normal</option>
              <option value="fighting">fighting</option>
              <option value="flying">flying</option>
