@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchPokemon } from '../../Redux/Actions/actions';
+import "./SearchBar.css"
 
 export const SearchBar = () => {
   const [name, setName] = useState('');
@@ -34,16 +35,19 @@ export const SearchBar = () => {
   };
 
   return (
-    <div>
+    <>
+    <div className='SearchBar'>
+
       <form onSubmit={searchHandler}>
         <input
+        className='inputS'
           type="text"
           name='SearchName'
-          placeholder='Buscar nombre de Pokémon'
+          placeholder='Find Pokémon name'
           value={name}
           onChange={inputHandler}
-        />
-        <button type="submit">🔍</button>
+          />
+        <button type="submit" className='pokeSearch'>  </button>
       </form>
       {error && <span>{error}</span>}
       {pokemonInfo && (
@@ -52,7 +56,8 @@ export const SearchBar = () => {
           
         </div>
       )}
-    </div>
+      </div>
+  </>
   );
 };
 

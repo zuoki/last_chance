@@ -14,11 +14,13 @@ import "./Card.css"
 
   if (Array.isArray(data.types)) {
     // Si es un array de objetos, extraer sus 'name' y convertirlo en un string
-    typeNames = data.types.map((type) => (typeof type === 'string' ? type : type.name)).join(', ');
+    typeNames = data.types.map((type) => (typeof type === 'string' ? type : type.name)).join(' / ');
   } else {
     // Si ya es un array de strings, simplemente unirlos con comas
-    typeNames = data.types.join(', ');
+    typeNames = data.types.join(' / ');
   }
+
+  const nameM=name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <>
@@ -26,9 +28,11 @@ import "./Card.css"
         <article className='card'>
           <img src={cardImg} alt="card-background" />
             <img src={img} alt={name} className="img1" />
-         
         </article>
-      <p>({name} : {typeNames})</p>
+        <div className="info">
+      <p>{nameM} : {typeNames}</p>
+
+        </div>
       </Link>
     </>
   );

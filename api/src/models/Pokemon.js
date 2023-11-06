@@ -63,7 +63,7 @@ module.exports = (sequelize) => {
     },
     img: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     }
   }, {
     timestamps: false, // Deshabilitar marcas de tiempo

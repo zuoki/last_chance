@@ -1,8 +1,39 @@
 .card-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas con ancho igual */
-    grid-template-rows: repeat(3, 1fr);    /* 3 filas con altura igual */
+    grid-template-columns: repeat(3, 1fr); /* 4 columnas con ancho igual */
+    grid-template-rows: repeat(4, 1fr);    /* 3 filas con altura igual */
     gap: 10px; /* Espacio entre las tarjetas */
-   
+  
+  }
+
+  .buttons{
+    border: 5px solid black;
+    position: fixed;
+    width: 23%;
+    background-color: rgb(237, 75, 70);
+    right: 1%;
+    border-radius: 10px;
   }
   
+  .buttonP{
+    background-color: rgb(28, 182, 148);
+    width: 170px;
+    height: 60px;
+    font-family: 'Pixelify Sans', sans-serif; 
+    background-size: 170px;
+    font-size: 2em;
+    border: 3px solid black;
+  }
+  .buttonP2{
+    position: relative;
+    background-color: rgb(28, 182, 148);
+    width: 170px;
+    height: 60px;
+    font-family: 'Pixelify Sans', sans-serif; 
+    background-size: 170px;
+    font-size: 2em;
+    border: 3px solid black;
+  }
+  .pP{
+    font-size: 2em;
+  }

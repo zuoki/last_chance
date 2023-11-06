@@ -1,54 +1,58 @@
 /* Estilos generales para Pokedex */
 .Pokedex {
   
-  border: 2px solid #333;
+  border: 5px solid black ;
+  color: green;
+  font-family: 'Pixelify Sans', sans-serif; 
+  position: relative;
   border-radius: 10px;
-  background: url('../../assets/img/pokedex.png') no-repeat;
+  border-radius: 10px;
+  background: url('../../assets/img/pokedex.png');
   background-size: cover;
-  width: 24vw;
+  width: 99%;
+  height: 99%;
+}
+.namePokedex{
+  position: absolute;
+  font-size: 2.6em;
+  top: 8%;
+  left: 8%;
+  
+}
+
+.FormC {
+  border: 3px solid black ;
+  position: relative;
+  width: 90%;
+  top: 22%;
+  left: 5%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: rgba(16, 16, 17, 0.85); /* Un fondo oscuro con opacidad (0.7) */
+  
 }
 
 
-  
-  .Pokedex select {
-    padding: 5px;
-    margin: 5px;
-    font-size: 14px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+  .FormC {
+    text-align: center; /* Centra el contenido del formulario */
+  }
+
+  .FormC select {
+    font-family: 'Pixelify Sans', sans-serif; 
     border-radius: 5px;
-    color: #333;
-  }
-  
-  .Pokedex label {
-    font-family: 'Pixelify Sans', sans-serif; 
-    display: block;
-    font-weight: bold;
-    color: #333;
-    margin-top: 10px;
-  }
-  
-  .Pokedex button {
-    font-family: 'Pixelify Sans', sans-serif; 
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
+    font-size: 1.2em; /* Tamaño de fuente de 1.3 em para los select */
+    border: solid 2.5px black; /* Radio del borde de 2.5px para los select */
     border-radius: 5px;
-    margin: 20px;
+   
   }
-  
-  .Pokedex button:hover {
-    font-family: 'Pixelify Sans', sans-serif; 
-    background-color: #0056b3;
+
+  /* Estilos específicos para las etiquetas */
+  .FormC label {
+    display: block; /* Hace que las etiquetas estén en una línea separada */
+    font-size: 1.3em; /* Tamaño de fuente de 1.3 em para las etiquetas */
+    margin: 10px 0; /* Espacio superior e inferior para las etiquetas */
   }
-  
-  /* Estilos para el contenedor de Pokedex */
-  .Pokedex-container {
-    font-family: 'Pixelify Sans', sans-serif; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura de la página completa */
-  }
+
+
+
   

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterPokemon, orderName, orderPokemons, originPokemon } from '../../Redux/Actions/actions';
 import { Link } from 'react-router-dom';
+import "./Pokedex.css"
 
 
 export const Pokedex = () => {
@@ -46,10 +47,11 @@ export const Pokedex = () => {
 
   return (
     <>
-      <div className='Pokedex'>Pokedex</div>
-      <form>
-        <div>
-          <label htmlFor="type" >Type</label>
+      <div className='Pokedex'>
+        <p className='namePokedex'>  Pokedex </p>
+      <form className='FormC'>
+        <div >
+          <label htmlFor="type" >Filter:Type</label>
           <select name="type" id="1" onChange={(event) => typeHandler(event)} >
             <option value="normal">OFF</option>
             <option value="fighting">fighting</option>
@@ -77,7 +79,7 @@ export const Pokedex = () => {
 
 
         <div>
-        <label htmlFor="Origin">Origin</label>
+        <label htmlFor="Origin">Filter: by Origin</label>
           <select name="Origin" id="3" onChange={(event) => originHandler(event)}>
             <option value="">OFF</option>
             <option value="API">For the pokedex</option>
@@ -90,7 +92,7 @@ export const Pokedex = () => {
 
 
         <div>
-          <label htmlFor="ordenamiento">Attack</label>
+          <label htmlFor="ordenamiento">Sort by attack</label>
           <select name="ordenamiento" id="2" onChange={(event) => orderHandler(event)}>
             <option value="notOrder">OFF</option>
             <option value="maxMin">{"100 > 0"}</option>
@@ -99,7 +101,7 @@ export const Pokedex = () => {
         </div>
 
         <div>
-        <label htmlFor="lphabetical">lphabetical</label>
+        <label htmlFor="lphabetical">Sort by name</label>
           <select name="lphabetical" id="4" onChange={(event) => alphabeticalHandler(event)}>
             <option value="">OFF</option>
             <option value="ascName">A-Z</option>
@@ -109,6 +111,7 @@ export const Pokedex = () => {
       </form>
        
       <Link to="/FormPage"><button>create</button></Link>
+      </div>
     </>
   );
 };

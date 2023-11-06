@@ -1,5 +1,6 @@
 body{
 font-family: 'Pixelify Sans', sans-serif; 
-background-color:#f43f3f ;
+background-image: url('./assets/img/landing.jpg');
+background-size: cover;
 overflow: hidden;
 }

@@ -8,7 +8,7 @@ article {
 
 /* Estilo para la primera imagen dentro del 'article' */
 article img:first-child {
-  box-shadow: 0 60px 60px -60px rgba(253, 236, 0, 0.966);
+  box-shadow: 0 60px 60px -60px rgba(41, 41, 40, 0.966);
   border-radius: 4px;
   object-fit: cover;
   width: 100%;
@@ -31,17 +31,11 @@ article img:last-child {
 
 /* Estilo para el elemento con clase 'info' dentro del 'article' */
 .info {
-  position: absolute;
-  top: 70px;
-  left: 20px;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  z-index: 4;
-  font-family: 'Pixelify Sans', sans-serif;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  font-size: 2em;
+  font-size: 1.3em;
+  position: relative;
+  width: 230px;
+  height: 50px;
+ 
 }
 
 /* Efecto de transformación y rotación cuando se coloca el mouse sobre 'article' */

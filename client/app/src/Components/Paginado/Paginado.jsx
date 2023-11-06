@@ -35,9 +35,10 @@ const Paginado = () => {
           <Card key={pokemon.id} data={pokemon} />
         ))}
       </div>
-      <div>
-        <button onClick={prevHandler}>Previous</button>
-        <button onClick={nextHandler}>Next</button>
+      <div className='buttons'>
+        <button className='buttonP2' onClick={nextHandler}>Next</button>
+        <p className='pP'> Page :{currentPage}</p>
+        <button className='buttonP' onClick={prevHandler}>Previous</button>
       </div>
     </>
   );

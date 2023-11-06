@@ -1,0 +1,32 @@
+.SearchBar {
+    border: 5px solid black;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-image: url("../../assets//img/Fondo_Search.png");
+
+
+}
+
+.inputS {
+    border-radius: 10px;
+    position: absolute;
+    top: 35%;
+    left: 32%;
+    width: 400px;
+    height: 50px;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 2em;
+    border: 4px;
+    border: 5px solid black;
+}
+.pokeSearch{
+    position: absolute;
+    top: 15%;
+    left: 58%;
+    width: 70px;
+    height: 70px;
+    background-image: url(../../assets//img//icono.png);
+    background-size: cover;
+   
+}

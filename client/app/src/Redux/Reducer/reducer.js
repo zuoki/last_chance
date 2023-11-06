@@ -125,7 +125,6 @@ const reducer = (state = initialState, action) => {
                   return {
                     ...state,
                     pokemons: newAll,
-                    allPokemons: newAll,
                   };
                 }
               

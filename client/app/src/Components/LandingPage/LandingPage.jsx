@@ -4,6 +4,7 @@ import { fetchPokemons } from '../../Redux/Actions/actions'
 import { useDispatch, useSelector } from 'react-redux'; // Importa useDispatch aquí
 import pokeCenter from "../../assets/img/welcome-Poke-Center.png"
 import pokeBall from "../../assets/img/Pokeball.png"
+import byJonathanG from "../../assets/img/byJonathanG.png"
 import "./LandingPage.css"
 
 export const LandingPage = () => {
@@ -18,8 +19,9 @@ export const LandingPage = () => {
     <div className='landing'>
       <img src={pokeCenter} alt="pokecenter" className='welcome' />
       <img src={pokeBall} alt="pokecenter"  className='pokeball'/>
-      {pokemons=="cargando"?<p>aun no puedes acceder</p>:<Link to="/Home"><button>Home</button></Link>}
-      <p>{pokemons==="cargando"?"cargarndo ⌛⌛⌛":"A CAPTURARLOS!!!"}</p>
+      <h1 className='cargando'>{pokemons==="cargando"?"Loading ⌛⌛⌛":"Gotta catch 'em all"}</h1>
+      {pokemons=="cargando"?<p className='goHome'></p>:<Link to="/Home"> <p className='goHome2'>LET'S GO</p> </Link>}
+      <img src={byJonathanG} alt="developer" className='jona' />
     </div>
     </>
   );

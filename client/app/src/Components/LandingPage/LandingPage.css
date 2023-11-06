@@ -1,20 +1,47 @@
 .landing {
-    width: 100vw;
-    height: 100vh;
-    background-color: #f43f3f;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100vw;
+  height: 100vh;
+  top: -5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cargando{
+  z-index: 5;
+  position: absolute;
+  top: 66%;
+  color: #fff;
+  border-radius: 5px;
+  width: 350px;
+  height: 50px;
+  font-size: 2em;
+  background-color:rgb(88, 88, 90) ;
+}
+.goHome2 {
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgb(88, 88, 90);
+  top: 75%;
+  width: 300px;
+  height: 45px;
+  font-size: 2em;
+  left: 50%; /* Centra horizontalmente con respecto al elemento padre */
+  transform: translateX(-50%); /* Corrige la posición para centrar adecuadamente */
+}
+
   
   .welcome {
+    position: absolute;
+    top: 40px;
     max-width: 100%; /* Ajusta el tamaño máximo de la imagen al ancho del contenedor */
     height: auto; /* Mantiene la proporción de aspecto original de la imagen */
   }
   
   .pokeball {
-    width: 360px;
+    position: absolute;
+    top: 190px;
+    width: 300px;
     animation: float 2s infinite ease-in-out;
   }
   
@@ -30,22 +57,22 @@
   
   /* Estilos para botón */
   button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: transparent;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     text-decoration: none;
     margin: 20px;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+
+  .jona{
+    position: absolute;
+    width: 500px;
+    top: 90%;
+    left: 66%;
   }
-  
-  /* Estilos para texto */
-  p {
+ 
+  p{
     color: #fff;
-    font-size: 20px;
   }
   
