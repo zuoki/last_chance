@@ -10,7 +10,8 @@
     border: 5px solid black;
     position: fixed;
     width: 23%;
-    background-color: rgb(237, 75, 70);
+    background-image: url(../../assets//img/nexPrev.png);
+    background-size: cover;
     right: 0.5%;
     border-radius: 10px;
     height: 25%;

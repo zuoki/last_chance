@@ -1,3 +1,319 @@
 *{
     text-align: center;
 }
+
+.jejeje {
+  background-image: url(../../assets/img/form1.png);
+  background-size: cover;
+  border-radius: 10px;
+  border: 5px solid black;
+  width: 600px;
+  height: 740px;
+  position: relative;
+  top: 390px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imgProfe{
+  bottom: 0px;
+  right:30px;
+  position: absolute;
+  height: 400px;
+  width: 250px;
+}
+
+
+
+.inputText{
+  border: 4px solid black;
+  font-family: 'Pixelify Sans', sans-serif; 
+  display: absolute;
+  margin-top: 10px;
+  height: 30px;
+  width: 300px;
+  font-size: 1.2em;
+  border-radius: 10px;
+}
+
+.formC{
+  align-content: center;
+  background-image: url(../../assets//img/labOak.png);
+  background-size: cover;
+  border-radius: 10px;
+  border: 5px solid black;
+  height: 10%;
+}
+.info{
+  position: relative;
+  width: 20px;
+  font-size: 1.2em;
+}
+
+.errInfo {
+  position: absolute;
+  width: 450px;
+  height: 340px;
+  font-size: 1.5em;
+  top: 18%;
+  right: 5%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Centrar verticalmente los elementos */
+ background-image: url(../../assets/img/infoErr.png);
+  border-radius: 10px;
+  border: 5px solid black;
+}
+
+.err {
+  width: 100%;
+  height: 30px; /* Aumenta el espacio vertical entre elementos */
+  margin-bottom: 10px; /* Puedes ajustar esto según tu preferencia */
+  color: red;
+}
+
+
+.typeBox {
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(72, 64, 64);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    color: white;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .typeBox .elemento {
+    width: 100%; 
+    
+  }
+
+  input[type="checkbox"] {
+    appearance: none; /* Oculta el estilo nativo del sistema operativo */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #333; /* Borde del checkbox */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: white;
+    cursor: pointer;
+  }
+
+
+  .nowp{
+    color: #000;
+    font-size: 1.4em;
+    z-index: 45;
+    padding-left: 35%;
+    top: -50%;
+    right: 0%;
+    position: absolute;
+  }
+
+  .botonCreate{
+    overflow: visible;
+    color: #000;
+    display: flex;
+    position: absolute;
+    top: 45%;
+    right: 14%;
+    z-index: 40;
+    width: 300px;
+    font-family: 'Pixelify Sans', sans-serif; 
+    height: 300px;
+
+  }
+
+  .backHome {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 250px;
+    height: 250px;
+    transform-origin: bottom center;
+    animation: expandContract 3s ease-in-out infinite;
+}
+
+@keyframes expandContract {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+  
+  /* Estilo cuando el checkbox está marcado (verde) */
+  input[type="checkbox"]:checked {
+    background-color: rgb(61, 61, 57); /* Cambia el fondo a verde */
+    border-color:rgb(0, 0, 0); /* Cambia el borde a verde */
+  }
+
+
+  .normal {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: gray;
+  }
+  
+  .fighting {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: red;
+  }
+  
+  .flying {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: blue;
+  }
+  
+  .poison {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: purple;
+  }
+  
+  .ground {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: brown;
+  }
+  
+  .rock {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #A0522D; /* Brownish color */
+  }
+  
+  .bug {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: green;
+  }
+  
+  .ghost {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #4B0082; /* Indigo */
+  }
+  
+  .steel {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #B0C4DE; /* Light Steel Blue */
+  }
+  
+  .fire {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: orangered;
+  }
+  
+  .water {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: blue;
+  }
+  
+  .grass {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: green;
+  }
+  
+  .electric {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: yellow;
+  }
+  
+  .psychic {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #FF69B4; /* Pink */
+  }
+  
+  .ice {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #87CEEB; /* Sky Blue */
+  }
+  
+  .dragon {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #8A2BE2; /* Blue Violet */
+  }
+  
+  .dark {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: rgb(138, 135, 135);
+  }
+  
+  .fairy {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #FF1493; /* Deep Pink */
+  }
+  
+  .unknown {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: white;
+  }
+  
+  .shadow {
+    font-size: 1.2em;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    color: #808080; /* Gray */
+  }

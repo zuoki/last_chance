@@ -12,9 +12,9 @@ import "./GoForm.css"
         <img className="mioak" src={miOak} alt="profesor" />
         <img className="pokecenter" src={pokeCenter} alt="profesor" />
   <Link  to="/FormPage">
-     <button>
-        GO REGISTER!
-     </button>
+     <div className='create'>
+        <p className='go'>REGISTER!</p>
+     </div>
   </Link>
 
     </div>

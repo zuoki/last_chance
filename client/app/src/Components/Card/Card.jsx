@@ -8,7 +8,7 @@ import "./Card.css"
     return <div>Loading...</div>;
   }
 
-  const { id, name, img, types, attack } = data;
+  const { id, name, img  } = data;
 
   let typeNames;
 

@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import preparaTypes from '../../Helpers/preparaTypes';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import validate from '../../Helpers/validate';
 import { Link } from 'react-router-dom';
-import './FormPage.css';
+import profeOak from "../../assets/img/profeOak.png"
+import backImg from "../../assets/img/backCard.png"
+import './FormPage.css'
 
 export const FormPage = () => {
+  const [types, setTypes] = useState([]);
   const [err, setErr] = useState({
     name: '',
     img: '',
@@ -15,9 +17,8 @@ export const FormPage = () => {
     speed: '',
     height: '',
     weight: '',
-    frist: '',
-    second: '',
-    types: ''
+    types: [],
+    ready: false,
   });
 
   const [form, setForm] = useState({
@@ -29,11 +30,16 @@ export const FormPage = () => {
     speed: '',
     height: '',
     weight: '',
-    frist: '',
-    second: ''
+    types: []
   });
 
-  const submitHandler = async (event, form) => {
+  useEffect(() => {
+    fetch("http://localhost:3001/types")
+      .then(response => response.json())
+      .then(data => setTypes(data.map(({ name, id }) => ({ name, id }))));
+  }, []);
+
+  const submitHandler = async (event) => {
     event.preventDefault();
     try {
       const crear = await axios.post("http://localhost:3001/pokemons/", form);
@@ -46,129 +52,101 @@ export const FormPage = () => {
   };
 
   const handleChange = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-    setForm({ ...form, [property]: value });
+    const selectedType = event.target.value;
+    let updatedTypes;
 
-    preparaTypes({ ...form, [property]: value }, setForm);
-    validate({ ...form, [property]: value }, setErr, err);
+    if (event.target.name === "types") {
+      if (form.types.includes(selectedType)) {
+        updatedTypes = form.types.filter(item => item !== selectedType);
+      } else {
+        updatedTypes = [...form.types, selectedType];
+      }
+      setForm({ ...form, types: updatedTypes });
+      validate({ ...form, types: updatedTypes }, setErr, err);
+    } else {
+      const property = event.target.name;
+      const value = event.target.value;
+      setForm({ ...form, [property]: value });
+      validate({ ...form, [property]: value }, setErr, err);
+    }
   };
+
+
 
   return (
     <>
-      <div>FromPage</div>
-      <form action="#" onSubmit={(event) => submitHandler(event, form)}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={form.name} onChange={handleChange} />
-          <span>{err.name}</span>
+      <div className='contenedorF'>
+        {/*                                   INPUTS TEXT                                              */}
+        <form action="#" onSubmit={(event) => submitHandler(event, form)} className=' formC'>
+          <div className='jejeje'>
+            <div>
+              <label htmlFor="name" className='info'>Name_:</label>
+              <input type="text" name="name" value={form.name} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="image" className='info'>Image:</label>
+              <input type="text" name="img" value={form.img} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="life" className='info'>Life___:</label>
+              <input type="text" name="hp" value={form.hp} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="attack" className='info'>Attac:</label>
+              <input type="text" name="attack" value={form.attack} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="defense" className='info'>Defens:</label>
+              <input type="text" name="defense" value={form.defense} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="speed" className='info'>Speed_:</label>
+              <input type="text" name="speed" value={form.speed} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="height" className='info'>Height:</label>
+              <input type="text" name="height" value={form.height} onChange={handleChange} className='inputText' />
+            </div>
+            <div>
+              <label htmlFor="weight" className='info'>Weight:</label>
+              <input type="text" name="weight" value={form.weight} onChange={handleChange} className='inputText' />
+            </div>
+            {/*                                                      MAP OF TYPES                                                      */}
+            <div className='typeBox'>
+              {types.map(({ name, id }) => (
+                <label key={id} className={name}>
+                  <input name="types" type="checkbox" value={name} onChange={handleChange} className={name} />
+                  {name}
+                </label>))}
+            </div>
+          </div>
+          <br />
+          {err.ready===true?
+          
+          <div className='botonCreate'>
+            <p className="nowp" >Now, press the button to update the new Pokémon data in your Pokédex </p>
+          <button type="submit" className='create'>Create Pokemon</button>
+          </div>
+:<></>}
+          {/*                                           INFO   ERRORS                                             */}
+
+        </form>
+        <div className="errInfo">
+          <span className="err"></span>
+          <span className="err">{err.img}</span>
+          <span className="err">{err.hp}</span>
+          <span className="err">{err.attack}</span>
+          <span className="err">{err.defense}</span>
+          <span className="err">{err.types}</span>
         </div>
+        <img src={profeOak} alt="profesor" className='imgProfe' />
+        {/*                                          BUTTON CREATE                                                 */}
 
-        <div>
-          <label htmlFor="image">URL Image</label>
-          <input type="text" name="img" value={form.img} onChange={handleChange} />
-          <span>{err.img}</span>
-        </div>
-
-        <div>
-          <label htmlFor="life">Life</label>
-          <input type="text" name="hp" value={form.hp} onChange={handleChange} />
-          <span>{err.hp}</span>
-        </div>
-
-        <div>
-          <label htmlFor="attack">Attack</label>
-          <input type="text" name="attack" value={form.attack} onChange={handleChange} />
-          <span>{err.attack}</span>
-        </div>
-
-        <div>
-          <label htmlFor="defense">Defense</label>
-          <input type="text" name="defense" value={form.defense} onChange={handleChange} />
-          <span>{err.defense}</span>
-        </div>
-
-        <div>
-          <label htmlFor="speed">Speed</label>
-          <input type="text" name="speed" value={form.speed} onChange={handleChange} />
-          <span>{err.speed}</span>
-        </div>
-
-        <div>
-          <label htmlFor="height">Height</label>
-          <input type="text" name="height" value={form.height} onChange={handleChange} />
-          <span>{err.height}</span>
-        </div>
-
-        <div>
-          <label htmlFor="weight">Weight</label>
-          <input type="text" name="weight" value={form.weight} onChange={handleChange} />
-          <span>{err.weight}</span>
-        </div>
-
-        <div>
-          <label htmlFor="type1">Type</label>
-          <select name="frist" id="1" value={form.frist} onChange={handleChange} multiple>
-             <option value="normal">normal</option>
-             <option value="fighting">fighting</option>
-             <option value="flying">flying</option>
-             <option value="poison">poison</option>
-             <option value="ground">ground</option>
-             <option value="rock">rock</option>
-             <option value="bug">bug</option>
-             <option value="ghost">ghost</option>
-             <option value="steel">steel</option>
-             <option value="fire">fire</option>
-             <option value="water">water</option>
-             <option value="water">water</option>
-             <option value="grass">grass</option>
-             <option value="electric">electric</option>
-             <option value="psychic">psychic</option>
-             <option value="ice">ice</option>
-             <option value="dragon">dragon</option>
-             <option value="dark">dark</option>
-             <option value="fairy">fairy</option>
-             <option value="unknown">unknown</option>
-             <option value="shadow">shadow</option>
-          </select>
-          <span>{err.types}</span>
-        </div>
-
-        <div>
-          <label htmlFor="type2">Type 2</label>
-          <select name="second" id="2" value={form.second} onChange={handleChange}>
-            <option value="normal">normal</option>
-            <option value="fighting">fighting</option>
-            <option value="flying">flying</option>
-            <option value="poison">poison</option>
-            <option value="ground">ground</option>
-            <option value="rock">rock</option>
-            <option value="bug">bug</option>
-            <option value="ghost">ghost</option>
-            <option value="steel">steel</option>
-            <option value="fire">fire</option>
-            <option value="water">water</option>
-            <option value="water">water</option>
-            <option value="grass">grass</option>
-            <option value="electric">electric</option>
-            <option value="psychic">psychic</option>
-            <option value="ice">ice</option>
-            <option value="dragon">dragon</option>
-            <option value="dark">dark</option>
-            <option value="fairy">fairy</option>
-            <option value="unknown">unknown</option>
-            <option value="shadow">shadow</option>
-          </select>
-        </div>
-
-        <button type="submit">Create Pokemon</button>
-      </form>
-
-      <div>
         <Link to="/Home">
-          <button>Back</button>
+          <img src={backImg} alt=""  className='backHome'/>
         </Link>
       </div>
+
     </>
   );
 };

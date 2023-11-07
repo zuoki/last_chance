@@ -1,16 +1,65 @@
-.contenedorG{
+.contenedorG {
     border: 5px solid black;
     position: fixed;
     top: 48%;
     width: 23%;
     height: 50.5%;
-    background-color: rgb(202, 44, 44);
+    background-image: url(../../assets/img/labMap.png);
+    background-size: cover;
     border-radius: 10px;
     right: .5%;
 }
-.mioak{
-position: absolute;
-width: 50%;
-bottom: 0;
-right: 70%    
+
+.mioak {
+    position: absolute;
+    width: 50%;
+    bottom: 0;
+    right: 70%
+}
+.go{
+   position: relative;
+   font-size: 1.3em;
+   top: 30%;
+   color: black;
+}
+
+
+
+.create {
+    position: relative;
+    font-family: 'Pixelify Sans', sans-serif; 
+    font-size: 1.2em;
+    top: 0; /* Asegúrate de que el elemento esté en su posición inicial */
+    right: -125px;
+    width: 120px;
+    height: 75px;
+    background-image: url(../../assets/img/buttion.png);
+    background-size: 120px;
+    z-index: 40;
+    transition: transform 0.2s ease; /* Agregamos una transición de 0.2 segundos */
+}
+
+.create:hover {
+    transform: translateY(-10px); /* Aplicamos un pequeño desplazamiento hacia arriba en hover */
+}
+
+.pokecenter {
+    position: relative;
+    animation: bounce 3s ease-in-out infinite; /* Aplicamos la animación "bounce" */
+    transform-origin: bottom center; /* Establecemos el punto de origen de la transformación */
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scaleX(1) scaleY(1); /* Estado inicial y final (sin escala) */
+    }
+    50% {
+        transform: scaleX(1.2) scaleY(0.8); /* Escala para hincharse */
+    }
+    75% {
+        transform: scaleX(0.9) scaleY(1.1); /* Escala para hincharse en el otro lado */
+    }
+    25% {
+        transform: scaleX(1.1) scaleY(0.9); /* Escala para hincharse en el otro lado */
+    }
 }

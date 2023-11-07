@@ -1,0 +1,262 @@
+.infoContainerDetail {
+    z-index: 30;
+    font-size: 1.2em;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+}
+
+.Details{
+    position:absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-image: url(../../assets//img/Detailsvw.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.imgDetail {
+    z-index: 20;
+    top: 20%;
+    right: 20%;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    animation: movePoke 5s ease-in-out infinite;
+}
+
+@keyframes movePoke {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(5px, 5px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(-5px, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.Dfire{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/fire.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dnormal{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/normal.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dfighting{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/fighting.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dflying{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/flying.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dpoison{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/poison.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dground{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/ground.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Drock{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/rock.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dbug{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/bug.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dghost{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/ghost.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dsteel{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/steel.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dwater{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/water.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dgrass{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/grass.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Delectric{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/electric.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dpsychic{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/psychic.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}
+.Dice{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/ice.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}.Ddragon{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/dragon.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}.Ddark{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/dark.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}.Dfairy{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/fairy.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}.Dunknown{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/unknown.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}.Dshadow{
+    top: 3%;
+    right:9%;
+    z-index: 0;
+    position: absolute;
+    background-image: url(../../assets/img/typesDetail/shadow.png);
+    background-size: cover;
+    width: 700px;
+    height: 700px;
+
+}

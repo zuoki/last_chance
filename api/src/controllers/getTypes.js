@@ -2,28 +2,28 @@ const axios = require("axios");
 const { Type } = require("../db");
 
 const getTypes = async () => {
-
-     
-   
-
-
     try {
-
-
-          //LLENADO DE LOS TYPES
-     const apiUrlTypes = "https://pokeapi.co/api/v2/type";
-     const response = await axios.get(apiUrlTypes);
-     const types = response.data.results.map((el) => ({ name: el.name }));
-
-     await Type.bulkCreate(types, { ignoreDuplicates: true }); // En lugar de realizar una llamada a la base de datos por cada tipo de Pokémon en el bucle, Utilizamos el método bulkCreate de Sequelize para insertar todos los tipos en la base de datos de una sola vez.
-
-    const allTypes = await Type.findAll();
-    
-    return allTypes;
-
+      // LLENADO DE LOS TYPES
+      const apiUrlTypes = "https://pokeapi.co/api/v2/type";
+      const response = await axios.get(apiUrlTypes);
+      const apiTypes = response.data.results.map((el) => ({ name: el.name }));
+  
+      // Verificar tipos existentes en la base de datos
+      const existingTypes = await Type.findAll({ where: { name: apiTypes.map(type => type.name) } });
+      const existingTypeNames = existingTypes.map(existingType => existingType.name);
+  
+      // Filtrar tipos que no existen en la base de datos
+      const typesToInsert = apiTypes.filter(type => !existingTypeNames.includes(type.name));
+  
+      // Insertar tipos que no existen en la base de datos
+      await Type.bulkCreate(typesToInsert, { ignoreDuplicates: true });
+  
+      const allTypes = await Type.findAll();
+      return allTypes;
     } catch (error) {
-        throw error;
+      throw error;
     }
-};
+  };
+  
 
 module.exports = getTypes;

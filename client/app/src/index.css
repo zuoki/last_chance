@@ -4,3 +4,12 @@ background-image: url('./assets/img/landing.jpg');
 background-size: cover;
 overflow: hidden;
 }
+
+a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: #000; /* Cambia el color del enlace no visitado (por ejemplo, a negro) */
+}
+
+a:visited {
+    color: #800080; /* Cambia el color del enlace visitado (por ejemplo, a púrpura) */
+}

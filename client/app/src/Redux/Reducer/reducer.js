@@ -8,7 +8,8 @@ import {
 } from "../Actions/actions";
 
 const initialState = {
-    pokemons: "cargando",
+  cargando:true,
+    pokemons: [],
     allPokemons: [],
  
 };
@@ -19,7 +20,9 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: action.payload,
-                allPokemons: action.payload
+                allPokemons: action.payload,
+                cargando:false,
+
             };
 
         case ORDER_POKEMONS:
@@ -125,6 +128,7 @@ const reducer = (state = initialState, action) => {
                   return {
                     ...state,
                     pokemons: newAll,
+                    allPokemons:newAll,
                   };
                 }
               
